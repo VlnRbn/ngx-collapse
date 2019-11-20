@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-collapse": [
+        "dist/ngx-collapse"
+      ],
+      "ngx-collapse/*": [
+        "dist/ngx-collapse/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
