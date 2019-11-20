@@ -1,27 +1,28 @@
 # NgxCollapse
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
+Bootstrap styles based collapse for Angular
 
-## Development server
+## Should I use this ?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> I'm using `bootsrap.css` for styles, but I dont want to add use `bootstrap.js` and `jQuery` in the application.
+<!-- > I'm not using any bootstap dependencies but want to have a bootstrap like collapse without any importing any large libraries like 'ngx-bootstrap' -->
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Simply run `npm i ngx-collapse`.
+Add `NgxCollapseModule` to your NgModule with `import { NgxCollapseModule } from 'ngx-collapse'`.
 
-## Build
+## Using
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Provides two directives collapse and collapseContent. 
+- Assign `collapseContent` directive to local template reference variable, something like this `#content1="collapseContent`, here content1 is variable
+- Assign the local variable to `collapse` directive.
 
-## Running unit tests
+`````
+  <div [collapse]="content1" > <button > toggle</button> </div>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  <div collapseContent  #content1="collapseContent" >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga iure eum obcaecati. Illum placeat eum animi culpa, numquam architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
+  </div>
+`````
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
