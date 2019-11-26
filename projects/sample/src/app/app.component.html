@@ -1,16 +1,47 @@
 <main class="container">
+  <div class="jumbotron">
+    <h1> Examples for ngx-collapse</h1>
+  </div>
 
-<h1> Examples for ngx-collapse</h1>
+  <h2>Unstyled</h2>
+  <article>
+    <div>
+      <button class="btn btn-outline-primary mr-2"  [collapse]="content1"> toggle 1</button>
+      <button class="btn btn-outline-primary mr-2"  [collapse]="content2"> toggle 2 </button>
+      <button class="btn btn-outline-primary mr-2"  [collapse]="[content1, content2]"> Toggle both </button>
+    </div>
 
-<hr>
-<h2>Unstyled</h2>
-<div [collapse]="content1"> <button> toggle</button> </div>
 
-<div collapseContent #content1="collapseContent">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga iure eum obcaecati. Illum placeat eum animi culpa,
-  numquam architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
-</div>
+    <div collapseContent #content1="collapseContent">
+      1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga iure eum obcaecati. Illum placeat eum animi
+      culpa,
+      numquam architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
+    </div>
+    <div collapseContent #content2="collapseContent">
+      2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga iure eum obcaecati. Illum placeat eum animi
+      culpa,
+      numquam architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
+    </div>
+  </article>
 
-<hr>
+  <hr>
+
+  <h2>With some css</h2>
+
+  <article>
+    <div [collapse]="content" class="collapse-title"> Toggle 20
+
+      <span class="collapse-title-expand-indicator">
+        <img class="collapse-icon" src="assets/plus.svg" alt="plus-icon">
+      </span>
+    </div>
+
+    <div collapseContent #content="collapseContent">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa impedit harum quae at quos dolorum veniam quasi culpa commodi. Quaerat adipisci facere temporibus, quod corporis soluta voluptates quam doloremque consequatur.
+      Lorem ipsum, architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
+    </div>
+  </article>
+
+
 
 </main>
