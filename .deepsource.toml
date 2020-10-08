@@ -1,0 +1,20 @@
+version = 1
+
+exclude_patterns = [
+    "public/**,",
+    "dist/**"
+]
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  ecma_version = "2016"
+  module_system = "commonjs"
+  environment = [
+    "nodejs",
+    "browser",
+  ]
+
+  dialect = "typescript"
