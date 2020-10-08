@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+
+// .collapse:not(.show) {
+//   display: none;
+// }
+
+// .collapsing {
+//   position: relative;
+//   height: 0;
+//   overflow: hidden;
+//   transition: height 0.35s ease;
+// }
+
+  .collapse-title {
+    position: relative;
+    padding: 1rem 3.5rem 1rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #18181b;
+    background-color: var(--color-strata-yellow-1);
+    margin-bottom: 1rem;
+    background-color: #fcd869;
+
+    &.collapsed{
+      background-color: #fef1c9;
+    }
+
+    &-expand-indicator{
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      .collapse-icon{
+        transition: transform 0.35s ease;
+      }
+    }
+
+
+    &:not(.collapsed) {
+      .collapse-icon{
+        transition: transform 0.35s ease;
+        transform: rotateZ(45deg);
+      }
+    }
+  }

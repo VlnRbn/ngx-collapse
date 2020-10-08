@@ -1,27 +1,65 @@
 # NgxCollapse
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
+Bootstrap-like collapse for Angular
 
-## Development server
+## Should I use this ?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> I'm using `bootsrap.css` for styles, without `bootstrap.js` and `jQuery` dependencies.
 
-## Code scaffolding
+or
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> I'm not using `bootsrap`, And I want bootstrap-like collapse.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Installation
 
-## Running unit tests
+> Assuming `bootsrap.css` is already added to the project.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Simply run `npm i ngx-collapse`.
+- Add `NgxCollapseModule` to your NgModule with `import { NgxCollapseModule } from 'ngx-collapse'`.
 
-## Running end-to-end tests
+> Not using bootstap?
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- Add the following in styles.scss
+````
+.collapse:not(.show) {
+  display: none;
+}
 
-## Further help
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+````
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Implimentation
+
+- Provides two directives collapse and collapseContent. 
+- Assign `collapseContent` directive to local template reference variable, something like this `#content1="collapseContent`, here content1 is variable
+- Assign the local variable to `collapse` directive.
+
+- Option 1: Control one item
+
+`````
+  <div [collapse]="content1" > <button > toggle</button> </div>
+
+  <div collapseContent  #content1="collapseContent" >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga iure eum obcaecati. Illum placeat eum animi culpa, numquam architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
+  </div>
+`````
+
+- Option 2: Pass an array of multiple contents
+
+`````
+  <div [collapse]="[content1, content2]" > <button > toggle</button> </div>
+
+  <div collapseContent  #content1="collapseContent" >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga iure eum obcaecati. Illum placeat eum animi culpa, numquam architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
+  </div>
+
+  <div collapseContent  #content2="collapseContent" >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga iure eum obcaecati. Illum placeat eum animi culpa, numquam architecto in nam exercitationem praesentium, magni ratione voluptatibus nobis. Dolores, unde.
+  </div>
+`````

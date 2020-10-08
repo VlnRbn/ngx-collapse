@@ -11,13 +11,17 @@ import {
 // tslint:disable-next-line: directive-selector
 @Directive({ selector: '[collapseContent]', exportAs: 'collapseContent' })
 export class CollapseContentDirective implements OnInit {
-  constructor(private elementRef: ElementRef) {}
-
   private nextIsOpen = null;
+
+  private _open = false;
 
   private getHTMLEL(): HTMLElement {
     return this.elementRef.nativeElement;
   }
+
+
+  constructor(private elementRef: ElementRef) {}
+
 
   ngOnInit() {
     this.getHTMLEL().classList.add('collapse');
@@ -43,7 +47,7 @@ export class CollapseContentDirective implements OnInit {
 
   hide() {
     this.nextIsOpen = false;
-    console.log('hide');
+    this._open = false;
     const element: HTMLElement = this.getHTMLEL();
 
     // // remove collapse show
@@ -62,7 +66,7 @@ export class CollapseContentDirective implements OnInit {
 
   show() {
     this.nextIsOpen = true;
-    console.log('show');
+    this._open = true;
 
     const element: HTMLElement = this.getHTMLEL();
 
@@ -73,5 +77,16 @@ export class CollapseContentDirective implements OnInit {
 
     const height = element.scrollHeight;
     element.style.height = `${height}px`;
+  }
+
+  toggle() {
+    const element: HTMLElement = this.getHTMLEL();
+    element.classList.contains('show') ?
+      this.hide() :
+      this.show() ;
+  }
+
+  get open() {
+    return this._open || this.getHTMLEL().classList.contains('show');
   }
 }
